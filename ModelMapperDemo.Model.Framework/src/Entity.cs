@@ -29,7 +29,7 @@ namespace ModelMapperDemo.Model.Framework
         }
 
         /// <summary>
-        /// Read the value of the property.
+        /// Get the value of the property.
         /// </summary>
         public async Task<TValue> GetAsync<TValue>(
             Property<TValue> property,
@@ -51,6 +51,20 @@ namespace ModelMapperDemo.Model.Framework
         public override string ToString()
         {
             return $"{Descriptor.Name} {Id}";
+        }
+
+        /// <summary>
+        /// Mutate the value of the property.
+        /// </summary>
+        public async Task<(TValue, bool)> MutateAsync<TValue>(
+            Property<TValue> property,
+            Func<TValue, TValue> mutate,
+            IPropertyAccessContext context)
+        {
+            var oldValue = await GetAsync(property, context);
+            var newValue = mutate(oldValue);
+            var hasChanged = await SetAsync(property, newValue, context);
+            return (newValue, hasChanged);
         }
 
         Guid IEntity.Id => Id;

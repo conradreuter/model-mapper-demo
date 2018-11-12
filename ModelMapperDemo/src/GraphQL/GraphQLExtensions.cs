@@ -14,6 +14,6 @@ namespace ModelMapperDemo.GraphQL
         /// Make the GraphQL type nullable if the condition is met.
         /// </summary>
         public static IGraphType MakeNullableIf(this IGraphType type, bool condition) =>
-            condition ? new NonNullGraphType(type) : type;
+            condition ? type : new NonNullGraphType(type);
     }
 }

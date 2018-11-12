@@ -10,6 +10,11 @@ namespace ModelMapperDemo.Model.DomainTypes
     /// </summary>
     public sealed class ByYearAndMonth<TValue>
     {
+        /// <summary>
+        /// An instance with no entries.
+        /// </summary>
+        public static readonly ByYearAndMonth<TValue> Empty = new ByYearAndMonth<TValue>(Enumerable.Empty<Entry>());
+
         private readonly IReadOnlyDictionary<int, Entry> _entries;
 
         internal ByYearAndMonth(IEnumerable<Entry> entries)
