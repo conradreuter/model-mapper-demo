@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup>
+        <DocumentationFile>bin\Debug\netcoreapp2.0\ModelMapperDemo.Model.DomainTypes.xml</DocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ModelMapperDemo.Utility\ModelMapperDemo.Utility.csproj" />
+    </ItemGroup>
+</Project>

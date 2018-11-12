@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup>
+        <DocumentationFile>bin\Debug\netcoreapp2.0\ModelMapperDemo.Model.xml</DocumentationFile>
+        <NoWarn>1591;1701;1702;1705</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ModelMapperDemo.Model.DomainTypes\ModelMapperDemo.Model.DomainTypes.csproj" />
+        <ProjectReference Include="..\ModelMapperDemo.Model.Framework\ModelMapperDemo.Model.Framework.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Optional" Version="4.0.0" />
+    </ItemGroup>
+</Project>
