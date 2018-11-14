@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ModelMapperDemo.Model.Framework
 {
     /// <summary>
-    /// Describes an entity type
+    /// Describes an entity type.
     /// </summary>
     public interface IEntityDescriptor
     {
@@ -21,6 +21,6 @@ namespace ModelMapperDemo.Model.Framework
         /// <summary>
         /// The properties defined on the entity type.
         /// </summary>
-        IEnumerable<IProperty> Properties { get; }
+        IEnumerable<IPropertyDescriptor> Properties { get; }
     }
 }

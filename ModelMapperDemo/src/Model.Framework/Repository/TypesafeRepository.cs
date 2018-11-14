@@ -20,8 +20,7 @@ namespace ModelMapperDemo.Model.Framework.Repository
             _repository = repository;
         }
 
-        Task IRepository<TEntity>.AddAsync(TEntity entity, CancellationToken cancellationToken) =>
-            _repository.__UNSAFE__AddAsync(entity, cancellationToken);
+        TEntity IRepository<TEntity>.Create() => (TEntity)_repository.__UNSAFE__Create();
 
         Task<IEnumerable<TEntity>> IRepository<TEntity>.ListAsync(CancellationToken cancellationToken) =>
             _repository.__UNSAFE__ListAsync(cancellationToken)

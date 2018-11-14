@@ -20,7 +20,6 @@ namespace ModelMapperDemo.GraphQL.Mappers
             _mappers = new List<ISwitchableGraphQLMapper>
             {
                 new OptionGraphQLMapper(this),
-                new ByYearAndMonthGraphQLMapper(this),
                 new EntityGraphQLMapper(entityTypesByDescriptor),
                 new PrimitiveGraphQLMapper(),
             };

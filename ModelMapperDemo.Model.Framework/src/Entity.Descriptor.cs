@@ -27,7 +27,8 @@ namespace ModelMapperDemo.Model.Framework
 
             string IEntityDescriptor.Name => typeof(TEntity).Name;
 
-            IEnumerable<IProperty> IEntityDescriptor.Properties => Entity<TEntity>.Properties;
+            IEnumerable<IPropertyDescriptor> IEntityDescriptor.Properties =>
+                Entity<TEntity>.Properties;
         }
     }
 

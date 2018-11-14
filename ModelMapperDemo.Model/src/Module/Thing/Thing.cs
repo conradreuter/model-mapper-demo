@@ -4,9 +4,9 @@ using ModelMapperDemo.Model.Framework;
 namespace ModelMapperDemo.Model.Module
 {
     /// <summary>
-    /// A child entity.
+    /// Some thing.
     /// </summary>
-    public partial class Child : Entity<Child>
+    public partial class Thing : Entity<Thing>
     {
     }
 }

@@ -9,7 +9,7 @@
         <PackageReference Include="GraphiQL" Version="1.1.0" />
         <PackageReference Include="GraphQL" Version="2.3.0" />
         <PackageReference Include="Humanizer" Version="2.2.0" />
-        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
+        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
         <PackageReference Include="Newtonsoft.JSON" Version="11.0.2" />
         <PackageReference Include="Optional" Version="4.0.0" />
     </ItemGroup>

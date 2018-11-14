@@ -1,9 +1,9 @@
 namespace ModelMapperDemo.Model.Module
 {
-    partial class Child
+    partial class Thing
     {
         /// <summary>
-        /// Identifies the child entity amongst others within the same parent entity.
+        /// A name for uniquely identifying the thing.
         /// </summary>
         public static readonly Property<string> Name =
             new Value<string>(nameof(Name));

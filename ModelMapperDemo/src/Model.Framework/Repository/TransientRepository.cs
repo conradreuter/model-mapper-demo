@@ -15,7 +15,7 @@ namespace ModelMapperDemo.Model.Framework.Repository
         private readonly ISet<IEntity> _entities =
             new HashSet<IEntity>();
 
-        Task IRepository.__UNSAFE__AddAsync(IEntity entity, CancellationToken cancellationToken)
+        IEntity IRepository.__UNSAFE__Create()
         {
             _entities.Add(entity);
             return Task.CompletedTask;

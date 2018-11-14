@@ -20,7 +20,7 @@ namespace ModelMapperDemo.Model.Framework
         /// This is for framework code only. Use the type-safe variants wherever possible.
         /// </notes>
         Task<object> __UNSAFE__GetAsync(
-            IProperty property,
+            IPropertyDescriptor property,
             IPropertyAccessContext context);
 
         /// <summary>
@@ -29,8 +29,8 @@ namespace ModelMapperDemo.Model.Framework
         /// <notes>
         /// This is for framework code only. Use the type-safe variants wherever possible.
         /// </notes>
-        Task<bool> __UNSAFE__SetAsync(
-            IProperty property,
+        bool __UNSAFE__Set(
+            IPropertyDescriptor property,
             object value,
             IPropertyAccessContext context);
     }

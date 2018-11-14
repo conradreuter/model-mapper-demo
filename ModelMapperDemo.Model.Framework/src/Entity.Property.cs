@@ -5,12 +5,13 @@ namespace ModelMapperDemo.Model.Framework
 {
     partial class Entity<TEntity>
     {
-        private static readonly ISet<IProperty> Properties = new HashSet<IProperty>();
+        private static readonly ISet<IPropertyDescriptor> Properties =
+            new HashSet<IPropertyDescriptor>();
 
         /// <summary>
         /// Defines a new property on an entity type.
         /// </summary>
-        public abstract class Property<TValue> : IProperty
+        public abstract class Property<TValue> : IPropertyDescriptor
         {
             private readonly string _name;
 
@@ -25,11 +26,11 @@ namespace ModelMapperDemo.Model.Framework
                 return $"{Descriptor.Name}.{_name}";
             }
 
-            IEntityDescriptor IProperty.Entity => Descriptor;
+            IEntityDescriptor IPropertyDescriptor.Entity => Descriptor;
 
-            string IProperty.Name => _name;
+            string IPropertyDescriptor.Name => _name;
 
-            Type IProperty.Type => typeof(TValue);
+            Type IPropertyDescriptor.Type => typeof(TValue);
         }
     }
 }

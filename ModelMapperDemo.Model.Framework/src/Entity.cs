@@ -12,8 +12,8 @@ namespace ModelMapperDemo.Model.Framework
         where TEntity : Entity<TEntity>
     {
         private Option<Guid> _id;
-        private readonly IDictionary<IProperty, object> _valuesByProperty =
-            new Dictionary<IProperty, object>();
+        private readonly IDictionary<IPropertyDescriptor, object> _valuesByProperty =
+            new Dictionary<IPropertyDescriptor, object>();
 
         /// <summary>
         /// The unique identifier (ID) of the entity.
@@ -42,35 +42,21 @@ namespace ModelMapperDemo.Model.Framework
         /// <summary>
         /// Set the value of the property.
         /// </summary>
-        public Task<bool> SetAsync<TValue>(
+        public bool Set<TValue>(
             Property<TValue> property,
             TValue value,
             IPropertyAccessContext context) =>
-            ((IEntity)this).__UNSAFE__SetAsync(property, value, context);
+            ((IEntity)this).__UNSAFE__Set(property, value, context);
 
         public override string ToString()
         {
             return $"{Descriptor.Name} {Id}";
         }
 
-        /// <summary>
-        /// Mutate the value of the property.
-        /// </summary>
-        public async Task<(TValue, bool)> MutateAsync<TValue>(
-            Property<TValue> property,
-            Func<TValue, TValue> mutate,
-            IPropertyAccessContext context)
-        {
-            var oldValue = await GetAsync(property, context);
-            var newValue = mutate(oldValue);
-            var hasChanged = await SetAsync(property, newValue, context);
-            return (newValue, hasChanged);
-        }
-
         Guid IEntity.Id => Id;
 
         Task<object> IEntity.__UNSAFE__GetAsync(
-            IProperty property,
+            IPropertyDescriptor property,
             IPropertyAccessContext context)
         {
             if (!_valuesByProperty.TryGetValue(property, out var value))
@@ -80,8 +66,8 @@ namespace ModelMapperDemo.Model.Framework
             return Task.FromResult(value);
         }
 
-        Task<bool> IEntity.__UNSAFE__SetAsync(
-            IProperty property,
+        bool IEntity.__UNSAFE__Set(
+            IPropertyDescriptor property,
             object value,
             IPropertyAccessContext context)
         {
@@ -95,7 +81,7 @@ namespace ModelMapperDemo.Model.Framework
             {
                 _valuesByProperty[property] = value;
             }
-            return Task.FromResult(hasChanged);
+            return hasChanged;
         }
     }
 

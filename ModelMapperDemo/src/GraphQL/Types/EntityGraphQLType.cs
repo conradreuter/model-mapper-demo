@@ -15,7 +15,7 @@ namespace ModelMapperDemo.GraphQL.Types
     public class EntityGraphQLType : ObjectGraphType
     {
         private readonly IGraphQLMapper _mapper;
-        private readonly IEnumerable<IProperty> _properties;
+        private readonly IEnumerable<IPropertyDescriptor> _properties;
 
         public EntityGraphQLType(
             IEntityDescriptor descriptor,

@@ -15,7 +15,7 @@ namespace ModelMapperDemo.GraphQL.Mappers
         /// <summary>
         /// Create a new context from the property.
         /// </summary>
-        public static GraphQLMapperContext FromProperty(IProperty property) =>
+        public static GraphQLMapperContext FromProperty(IPropertyDescriptor property) =>
             new GraphQLMapperContext
             {
                 IsNullable = false,
@@ -31,7 +31,7 @@ namespace ModelMapperDemo.GraphQL.Mappers
         /// <summary>
         /// The original property to be mapped.
         /// </summary>
-        public IProperty Property { get; private set; }
+        public IPropertyDescriptor Property { get; private set; }
 
         /// <summary>
         /// The type of value to be mapped.

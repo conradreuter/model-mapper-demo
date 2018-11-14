@@ -2,9 +2,9 @@ using System;
 namespace ModelMapperDemo.Model.Framework
 {
     /// <summary>
-    /// Type-unsafe base interface for properties.
+    /// Describes a property.
     /// </summary>
-    public interface IProperty
+    public interface IPropertyDescriptor
     {
         /// <summary>
         /// The descriptor of the type of entity this property belongs to.

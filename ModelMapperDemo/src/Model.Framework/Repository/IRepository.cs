@@ -12,9 +12,9 @@ namespace ModelMapperDemo.Model.Framework.Repository
         where TEntity : Entity<TEntity>
     {
         /// <summary>
-        /// Add an entity.
+        /// Create a new entity.
         /// </summary>
-        Task AddAsync(TEntity entity, CancellationToken cancellationToken);
+        TEntity Create();
 
         /// <summary>
         /// Fetch all entities.
@@ -31,12 +31,12 @@ namespace ModelMapperDemo.Model.Framework.Repository
     public interface IRepository
     {
         /// <summary>
-        /// Add an entity.
+        /// Create a new entity.
         /// </summary>
         /// <notes>
         /// This is for framework code only. Use the type-safe variants wherever possible.
         /// </notes>
-        Task __UNSAFE__AddAsync(IEntity entity, CancellationToken cancellationToken);
+        IEntity __UNSAFE__Create();
 
         /// <summary>
         /// Fetch all entities.
